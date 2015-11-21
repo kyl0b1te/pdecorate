@@ -1,0 +1,11 @@
+{
+    "name": "zhikiri/php-decorator",
+    "description": "Simulate the Python decorators in PHP",
+    "authors": [
+        {
+            "name": "Zhivitsa Kirill",
+            "email": "zhivitsa.kirill.gm@gmail.com"
+        }
+    ],
+    "require": {}
+}
