@@ -2,6 +2,8 @@
 
 // PHP Decorator class helpers
 
+namespace PHPDecorator;
+
 /**
  * Make chain possible for PHP 5.3 and lower
  * @param object $instance instance of the target class
