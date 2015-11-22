@@ -1,4 +1,6 @@
 # php-decorator
+<img src="https://scrutinizer-ci.com/g/zhikiri/php-decorator/badges/build.png?b=master">
+<img src="https://scrutinizer-ci.com/g/zhikiri/php-decorator/badges/quality-score.png?b=master">
 
 Simulation of the Python decorators in PHP.<br>
 
