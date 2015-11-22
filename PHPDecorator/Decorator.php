@@ -28,6 +28,16 @@ class Decorator
     }
 
     /**
+     * Check is the decorator exist or not
+     * @param string $name target decorator name
+     * @return bool return true if decorator exist
+     */
+    public static function has($name)
+    {
+        return isset(self::$decorators[$name]);
+    }
+
+    /**
      * Set the decorators list
      */
     public function __construct()
