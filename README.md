@@ -4,6 +4,8 @@
 
 Simulation of the Python decorators in PHP.<br>
 
+Install with composer: <code>composer require zhikiri/php-decorator</code>
+
 Creation of the new decorator, second parameter <b>must be</b> callable.<br>
 Allow to use class methods, function names and Closure class instances (anonymous function)<br>
 <code>
