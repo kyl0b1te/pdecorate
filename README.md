@@ -8,11 +8,11 @@ Install with composer: <code>composer require zhikiri/php-decorator</code>
 
 Creation of the new decorator, second parameter <b>must be</b> callable.<br>
 Allow to use class methods, function names and Closure class instances (anonymous function)<br>
-<code>
+<pre>
 Decorator::add('italic', function ($content) {
-  return '\<i\>'.$content.'\</i\>';
+  return "< i>".$content."< /i>";
 });
-</code>
+</pre>
 
 Get instance of the decoration.<br>
 First of all pass the decorators and the last parameter <b>must be</b> the callable function.
