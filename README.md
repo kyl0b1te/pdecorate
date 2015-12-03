@@ -27,7 +27,7 @@ $decoration = new Decorator(
 
 Decoration execution<br>
 - cast to string
-<pre>echo $decoration;</pre>
+<pre>(string)$decoration;</pre>
 - execute the Decorator instance
 <pre>$decoration();</pre>
 - run the Decorator call method
