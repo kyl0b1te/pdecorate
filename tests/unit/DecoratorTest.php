@@ -34,13 +34,21 @@ class DecoratorTest extends \Codeception\TestCase\Test
     public function testDecorationInvokeMethod()
     {
         $decorator = $this->getDecorator();
-        $this->assertTrue($decorator() == 6);
+        $this->assertEquals(
+            $decorator(), 
+            6, 
+            'Unexpected decoration value given by invoke'
+        );
     }
 
     public function testDecorationToStringMethod()
     {
         $decorator = $this->getDecorator();
-        $this->assertTrue((string)$decorator == '6');
+        $this->assertEquals(
+            (string)$decorator, 
+            '6', 
+            'Unexpected decoration value given by cast decorator to string'
+        );
     }
 
     private function getDecorator()
