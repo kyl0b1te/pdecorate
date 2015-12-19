@@ -1,9 +1,5 @@
 # php-decorator
 
-[![Build Status](https://semaphoreci.com/api/v1/projects/9115f18c-73cf-46bb-8b95-8f98ddd1a2a9/617317/badge.svg)](https://semaphoreci.com/zhikiri/php-decorator)
-<img src="https://scrutinizer-ci.com/g/zhikiri/php-decorator/badges/build.png?b=master">
-<img src="https://scrutinizer-ci.com/g/zhikiri/php-decorator/badges/quality-score.png?b=master">
-
 Simulation of the Python decorators in PHP.<br>
 
 Install with composer: <code>composer require zhikiri/php-decorator</code>
