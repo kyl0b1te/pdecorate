@@ -13,7 +13,10 @@
             "PHPDecorator\\": "PHPDecorator/"
         }
     },
-    "require": {
+    "require-dev": {
         "codeception/codeception": "1.8.*"
+    },
+    "require": {
+
     }
 }

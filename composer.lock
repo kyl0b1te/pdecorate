@@ -4,9 +4,10 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e948529593c26d8a05b42dd3965f2d4f",
-    "content-hash": "c1da691926bee4e5e684b2f1a9d65fda",
-    "packages": [
+    "hash": "818beb33e854851389bb26c3c4177750",
+    "content-hash": "3faa83029e56bcf0ec15d732d3649ba5",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "behat/mink",
             "version": "v1.5.0",
@@ -1607,7 +1608,6 @@
             "time": "2015-11-30 12:35:10"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
