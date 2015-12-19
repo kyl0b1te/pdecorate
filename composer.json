@@ -1,6 +1,7 @@
 {
     "name": "zhikiri/php-decorator",
     "description": "Simulate Python decorators in PHP",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Zhivitsa Kirill",
