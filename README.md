@@ -1,5 +1,7 @@
 # php-decorator
 
+[![Build Status](https://travis-ci.org/zhikiri/php-decorator.svg?branch=master)](https://travis-ci.org/zhikiri/php-decorator)
+
 Simulation of the Python decorators in PHP.<br>
 
 Install with composer: <code>composer require zhikiri/php-decorator</code>
