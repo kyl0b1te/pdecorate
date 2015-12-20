@@ -35,8 +35,8 @@ class DecoratorTest extends \Codeception\TestCase\Test
     {
         $decorator = $this->getDecorator();
         $this->assertEquals(
-            $decorator(), 
-            6, 
+            $decorator(),
+            6,
             'Unexpected decoration value given by invoke'
         );
     }
@@ -45,8 +45,8 @@ class DecoratorTest extends \Codeception\TestCase\Test
     {
         $decorator = $this->getDecorator();
         $this->assertEquals(
-            (string)$decorator, 
-            '6', 
+            (string)$decorator,
+            '6',
             'Unexpected decoration value given by cast decorator to string'
         );
     }
