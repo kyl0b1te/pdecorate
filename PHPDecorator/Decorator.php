@@ -31,6 +31,17 @@ class Decorator
     }
 
     /**
+     * Remove decorator from the list
+     * @param string $name decorator function name
+     */
+    public static function remove($name)
+    {
+        if (self::has($name)) {
+            unset(self::$decorators[$name]);
+        }
+    }
+
+    /**
      * Check is the decorator exist or not
      * @param string $name target decorator name
      * @return bool return true if decorator exist
