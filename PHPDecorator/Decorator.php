@@ -2,6 +2,8 @@
 
 namespace PHPDecorator;
 
+use InvalidArgumentException as InvalidData;
+
 /**
  * Simulate the Python decorators in PHP
  * Class Decorator
@@ -13,6 +15,7 @@ class Decorator
     private static $decorators = array();
 
     private $decoration = array();
+    private $context;
 
     /**
      * Create new decorator
@@ -22,7 +25,7 @@ class Decorator
     public static function add($name, $function)
     {
         if (!is_callable($function)) {
-            throw new \InvalidArgumentException('Decorator function is not callable');
+            throw new InvalidData('Decorator function is not callable');
         }
         self::$decorators[$name] = $function;
     }
@@ -48,11 +51,35 @@ class Decorator
         $arguments = array_reverse($arguments);
         foreach ($arguments as $step) {
             if (!isset(self::$decorators[$step])) {
-                throw new \InvalidArgumentException("Decorator $step is not defined");
+                throw new InvalidData("Decorator $step is not defined");
             }
-
             $this->decoration[] = self::$decorators[$step];
         }
+    }
+
+    /**
+     * Bind context for the current decoration
+     * @param object|null $context applying decorators context
+     * @return Decorator instance of the current decoration
+     */
+    public function with($context)
+    {
+        if (!is_object($context) && $context !== null) {
+            throw new InvalidData("Context should be and object");
+        }
+        $this->context = $context;
+
+        return $this;
+    }
+
+    /**
+     * Is current decoration will be made with some context
+     * @param string $context context class name
+     * @return bool true in case of correct suggestion
+     */
+    public function isWith($context)
+    {
+        return $this->context !== null && is_a($this->context, $context, true);
     }
 
     /**
@@ -61,11 +88,14 @@ class Decorator
      */
     public function call()
     {
-        $arguments = func_get_args();
         $result = null;
+        $arguments = func_get_args();
         foreach ($this->decoration as $key => $step) {
             if (!is_callable($step)) continue;
 
+            if ($step instanceof \Closure && $this->context !== null) {
+                $step = $step->bindTo($this->context);
+            }
             $result = (!$key
                 ? call_user_func_array($step, $arguments)
                 : call_user_func($step, $result, $arguments)
