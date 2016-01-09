@@ -5,6 +5,8 @@ use \PHPDecorator\Decorator;
 class DecoratorTest extends \Codeception\TestCase\Test
 {
 
+    const SOURCE_CLASS = 'PHPDecorator\Decorator';
+
     /**
      * @var \UnitTester
      */
@@ -20,10 +22,81 @@ class DecoratorTest extends \Codeception\TestCase\Test
     {
     }
 
-    public function testCreateDecorator()
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testAddDecorator()
+    {
+        Decorator::add('fail', 1);
+        Decorator::add('test', function () {});
+        $this->assertEquals(
+            array('test' => function () {}),
+            $this->getPrivateProperty('decorators')->getValue()
+        );
+    }
+
+    public function testRemoveDecorator()
+    {
+        Decorator::add('test', function () {});
+        $this->assertEquals(
+            array('test' => function () {}),
+            $this->getPrivateProperty('decorators')->getValue()
+        );
+        Decorator::remove('test');
+        $this->assertEquals(
+            array(),
+            $this->getPrivateProperty('decorators')->getValue()
+        );
+    }
+
+    public function testHasDecorator()
     {
         Decorator::add('test', function () {});
         $this->assertTrue(Decorator::has('test'));
+        $this->assertFalse(Decorator::has('fail'));
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testCreateDecoration()
+    {
+        Decorator::add('test', function () {});
+        Decorator::add('test2', function () {});
+
+        $decoration = new Decorator('test', 'test2', function () {});
+        $decorators = $this->getPrivateProperty('decoration');
+        $this->assertNotEmpty($decorators->getValue($decoration));
+
+        new Decorator('fail', function () {});
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testWithMethod()
+    {
+        Decorator::add('test', function () { return $this->parameter; });
+        $decoration = new Decorator(
+            'test',
+            function () { return $this->parameter; }
+        );
+        $context = new StdClass();
+        $context->parameter = 1;
+        $this->assertEquals(
+            $context->parameter,
+            $decoration->with($context)->call()
+        );
+        $decoration->with(1);
+    }
+
+    public function isWithMethod()
+    {
+        Decorator::add('test', function () {  });
+        $decoration = new Decorator('test', function () {  });
+        $decoration->with(new StdClass());
+
+        $this->assertTrue($decoration->isWith('stdClass'));
     }
 
     public function testDecorationCallMethod()
@@ -70,6 +143,19 @@ class DecoratorTest extends \Codeception\TestCase\Test
         }
 
         return $this->decorator;
+    }
+
+    /**
+     * @param $name
+     * @return ReflectionProperty
+     */
+    private function getPrivateProperty($name)
+    {
+        $reflection = new ReflectionClass(self::SOURCE_CLASS);
+        $property = $reflection->getProperty($name);
+        $property->setAccessible(true);
+
+        return $property;
     }
 
 }
