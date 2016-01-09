@@ -30,7 +30,7 @@ Can be set a context for decoration, it will apply the decorators and decorating
 Method return decoration instance, so chain is accepted
  
 For check the decoration context can be used <code>isWith()</code> method
-<pre>$decoration->with('stdClass')</pre>
+<pre>$decoration->isWith('stdClass')</pre>
  
 For remove decoration context use <code>with()</code> method with <code>null</code> as a parameter
 
