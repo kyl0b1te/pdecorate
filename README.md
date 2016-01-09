@@ -15,7 +15,7 @@ Decorator::add('italic', function ($content) {
 </pre>
 
 Get instance of the decoration.<br>
-First of all pass the decorators and the last parameter <b>must be</b> the callable function.
+First of all pass the list of wanted decorators to apply and the callable function.
 <pre>
 $decoration = new Decorator(
     'italic',
@@ -24,6 +24,15 @@ $decoration = new Decorator(
     }
 );
 </pre>
+
+Can be set a context for decoration, it will apply the decorators and decorating function.
+<pre>$decoration->with(new StdClass())</pre>
+Method return decoration instance, so chain is accepted
+ 
+For check the decoration context can be used <code>isWith()</code> method
+<pre>$decoration->with('stdClass')</pre>
+ 
+For remove decoration context use <code>with()</code> method with <code>null</code> as a parameter
 
 Decoration execution<br>
 - cast to string
