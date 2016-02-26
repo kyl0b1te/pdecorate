@@ -2,6 +2,11 @@
 
 namespace Decoration;
 
+/**
+ * Class Decoration
+ * Create function decoration instance and decorate
+ * @package Decoration
+ */
 class Decoration
 {
 
@@ -10,28 +15,36 @@ class Decoration
     public function __construct()
     {
         $arguments = func_get_args();
-        $this->decorators =
-            array_pop($arguments)
-            + array_map(
-                function ($decorator) {
-                    if ($decorator instanceof Decorator) {
-                        return $decorator->decorator();
-                    }
-                },
-                array_reverse($arguments)
-            );
+        array_push($this->decorators, array_pop($arguments));
+        foreach (array_reverse($arguments) as $decorator) {
+            if ($decorator instanceof Decorator) {
+                array_push($this->decorators, $decorator->decorator());
+            }
+        }
     }
 
+    /**
+     * Run decoration
+     * @return string function decoration result
+     */
     public function __toString()
     {
         return (string)$this->decorate();
     }
 
+    /**
+     * Execute decoration
+     * @return mixed function decoration result
+     */
     public function __invoke()
     {
         return call_user_func_array([$this, 'decorate'], func_get_args());
     }
 
+    /**
+     * Function decoration loop
+     * @return mixed decoration result
+     */
     private function decorate()
     {
         $arguments = func_get_args();
