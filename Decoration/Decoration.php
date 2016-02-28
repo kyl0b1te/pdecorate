@@ -51,7 +51,7 @@ class Decoration
 
         return array_reduce(
             $this->decorators,
-            function ($decorator, $acc) use ($arguments) {
+            function ($acc, $decorator) use ($arguments) {
                 return $acc = call_user_func_array($decorator, [$acc, $arguments]);
             },
             null

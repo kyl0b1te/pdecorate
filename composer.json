@@ -10,13 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "PHPDecorator\\": "PHPDecorator/"
+            "Decoration\\": "Decoration/"
         }
     },
     "require-dev": {
         "codeception/codeception": "1.8.*"
     },
     "require": {
-
     }
 }
