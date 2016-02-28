@@ -11,5 +11,5 @@ before_script:
   - php vendor/codeception/codeception/codecept build
 
 script:
-  - mkdir tests/_output
+  #- mkdir tests/_output
   - php vendor/codeception/codeception/codecept run unit
