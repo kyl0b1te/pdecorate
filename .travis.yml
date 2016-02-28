@@ -8,8 +8,8 @@ php:
 before_script:
   - composer self-update
   - composer install -n --prefer-dist
-  #- php vendor/codeception/codeception/codecept build
+  - php vendor/codeception/codeception/codecept bootstrap
 
 script:
   - mkdir tests/_output
-  - php vendor/codeception/codeception/codecept run unit --steps
+  - php vendor/codeception/codeception/codecept run unit
