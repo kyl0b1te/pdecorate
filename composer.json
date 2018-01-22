@@ -11,7 +11,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Pdecorate\\": "src/Pdecorate"
+            "Pdecorate\\": "src/Pdecorate",
+            "Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",
