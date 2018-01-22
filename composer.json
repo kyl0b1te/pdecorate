@@ -1,22 +1,23 @@
 {
-    "name": "zhikiri/php-decorator",
-    "description": "Simulate Python decorators in PHP",
-    "license": "Apache-2.0",
+    "name": "zhikiri/pdecorate",
+    "description": "Python like function decoration in PHP",
+    "type": "library",
+    "license": "Apache-2",
     "authors": [
         {
-            "name": "Zhivitsa Kirill",
+            "name": "zhikiri",
             "email": "zhivitsa.kirill.gm@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "PHPDecorator\\": "PHPDecorator/"
+            "Pdecorate\\": "src/Pdecorate",
+            "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "stable",
+    "require": {},
     "require-dev": {
-        "codeception/codeception": "1.8.*"
-    },
-    "require": {
-
+        "phpunit/phpunit": "^6.5"
     }
 }
