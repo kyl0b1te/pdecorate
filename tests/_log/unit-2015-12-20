@@ -1,4 +1,0 @@
-[2015-12-20 08:37:39] DecoratorTest::testCreateDecorator.INFO: PASSED [] []
-[2015-12-20 08:37:39] DecoratorTest::testDecorationCallMethod.INFO: PASSED [] []
-[2015-12-20 08:37:39] DecoratorTest::testDecorationInvokeMethod.INFO: PASSED [] []
-[2015-12-20 08:37:39] DecoratorTest::testDecorationToStringMethod.INFO: PASSED [] []
